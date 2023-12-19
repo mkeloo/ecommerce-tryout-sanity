@@ -25,7 +25,7 @@ const Navbar = () => {
         </Link>
         <nav className="hidden gap-12 lg:flex 2xl:ml-16">
           {links.map((link, index) => (
-            <Link href={link.href} key={index}>
+            <Link href={link.href} key={index} legacyBehavior>
               {pathname === link.href ? (
                 <Link
                   className="text-lg font-semibold text-primary"
