@@ -1,8 +1,10 @@
+import AddToBag from '@/app/components/AddToBag';
 import { fullProduct } from '../../interface';
 import { sanityClient } from '../../lib/sanity';
 import ImageGallery from '@/app/components/ImageGallery';
 import { Button } from '@/components/ui/button';
 import { Star, Truck } from 'lucide-react';
+import CheckoutNow from '@/app/components/CheckoutNow';
 
 async function getData(slug: string) {
   const query = `*[_type == "product" && slug.current == "${slug}"][0] {
@@ -16,7 +18,7 @@ async function getData(slug: string) {
           price_id
       }`;
   const data = await sanityClient.fetch(query);
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
@@ -75,8 +77,15 @@ async function ProductPage({
               </div>
 
               <div className="flex gap-2">
-                <Button>Add To Bag</Button>
-                <Button variant={'secondary'}>Checkout Now</Button>
+                <AddToBag
+                  key={data._id}
+                  currency="USD"
+                  description={data.description}
+                  image={data.images[0]}
+                  name={data.name}
+                  price={data.price}
+                />
+                <CheckoutNow />
               </div>
 
               <p className="mt-12 text-base text-gray-500 tracking-wide">
