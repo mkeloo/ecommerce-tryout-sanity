@@ -1,6 +1,5 @@
 import { simplifiedProduct } from '../interface';
 import { sanityClient, urlFor } from '../lib/sanity';
-import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 

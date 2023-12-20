@@ -78,14 +78,23 @@ async function ProductPage({
 
               <div className="flex gap-2">
                 <AddToBag
-                  key={data._id}
                   currency="USD"
                   description={data.description}
                   image={data.images[0]}
                   name={data.name}
                   price={data.price}
+                  key={data._id}
+                  price_id={data.price_id}
                 />
-                <CheckoutNow />
+                <CheckoutNow
+                  currency="USD"
+                  description={data.description}
+                  image={data.images[0]}
+                  name={data.name}
+                  price={data.price}
+                  key={data._id}
+                  price_id={data.price_id}
+                />
               </div>
 
               <p className="mt-12 text-base text-gray-500 tracking-wide">
